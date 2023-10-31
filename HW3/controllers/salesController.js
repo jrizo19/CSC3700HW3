@@ -1,15 +1,19 @@
 const dataRoutes = require("../routes/dataRoutes");
-const Customer = require("../models/sales");
+const Sales = require("../models/sales");
 
 exports.getSales = (req, res, next) => {
-    res.render('/sales',{
-        from: 'sales'
-        // make sure this corresponds with the nav bar
-    })
+    Sales.fetchAll()
+        .then((rows, fieldData) =>{
+            res.render('sales',{
+                title: "All Sales",
+                from: 'sales',
+                sales: rows[0]
+            })
+        })
 }
 
 exports.postSales = (req, res, next) => {
-    res.render('/sales', {
+    res.render('sales', {
         from: 'sales'
         // make sure this corresponds with the nav bar
     })

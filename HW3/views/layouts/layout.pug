@@ -41,7 +41,11 @@ html
                 #navbarSupportedContent.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto
                         li.nav-item
-                            a.nav-link.active(aria-current='page' href='#') Home
+                        if from === '#'
+                            a.nav-link.active(href='#') Home
+                        else
+                            a.nav-link(href='#') Home
+
                         li.nav-item
                             if from === 'customers'
                                 a.nav-link.active(href='/customers') Customers
