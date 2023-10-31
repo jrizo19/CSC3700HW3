@@ -1,1 +1,26 @@
 include layouts/layout
+.container
+    h2.mt-4 #{title}
+    // Adjust this to either show title constant from here
+        // or to be pulled in from the controller
+
+    if customers.length === 0
+        h2 Sorry no current Customers
+    else
+        h2 Customers
+        table.table
+            thead
+                tr
+                    th(scope='col') Name
+                    th(scope='col') Email
+                    th(scope='col') Total Sales
+                    th(scope='col')
+                tbody
+                    each c in customers
+                        tr
+                            td= c.name
+                            td= c.email
+                            td= c.totalSales
+                            td
+                                form(method='get' action='updateCustomer/' + c.id)
+                                    button.btn.btn-primary(type='submit') update

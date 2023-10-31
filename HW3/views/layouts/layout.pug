@@ -43,9 +43,18 @@ html
                         li.nav-item
                             a.nav-link.active(aria-current='page' href='#') Home
                         li.nav-item
-                            a.nav-link(href='#') Customers
+                            if from === 'customers'
+                                a.nav-link.active(href='/customers') Customers
+                            else
+                                a.nav-link(href='/customers') Customers
                         li.nav-item
-                            a.nav-link(href='#') Products
+                            if from === 'products'
+                                a.nav-link.active(href='/products') Products
+                            else
+                                a.nav-link(href='/products') Products
                         li.nav-item
-                            a.nav-link(href='#') Sales
+                            if from === 'sales'
+                                a.nav-link.active(href='/sales') Sales
+                            else
+                                a.nav-link(href='/sales') Sales
         div.separator(style='background-color: #66fcf1; height: 5px;')
