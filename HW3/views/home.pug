@@ -1,1 +1,47 @@
 include layouts/layout
+.container
+    h1.mt-4 #{title}
+
+    if home.length === 0
+        h2 Sorry no current Customers
+    else
+        h2 Customers
+            table.table.table-striped
+                thead
+                    tr
+                        th(scope='col') Name
+                        th(scope='col') Total Sales
+                    tbody
+                        each c in home
+                            tr
+                                td= c.CustomerName
+                                td= c.TotalSales
+    if home.length === 0
+        h2 Sorry no current Products
+    else
+    h2 Products
+    table.table.table-striped
+        thead
+            tr
+                th(scope='col') Product
+                th(scope='col') Total Sales
+            tbody
+                each p in home
+                    tr
+                        td= p.itemname
+                        td= p.TotalSales
+    if home.length === 0
+        h2 Sorry no current Sales
+    else
+        h2 Sales
+        table.table.table-striped
+            thead
+                tr
+                    th(scope='col') Date
+                    th(scope='col') Total Sales
+                tbody
+                    each s in home
+                        tr
+                            td= s.SalesDate
+                            td= s.TotalSales
+

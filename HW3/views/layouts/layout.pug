@@ -41,10 +41,10 @@ html
                 #navbarSupportedContent.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto
                         li.nav-item
-                        if from === '#'
-                            a.nav-link.active(href='#') Home
+                        if from === 'home'
+                            a.nav-link.active(href='/home') Home
                         else
-                            a.nav-link(href='#') Home
+                            a.nav-link(href='/home') Home
 
                         li.nav-item
                             if from === 'customers'
