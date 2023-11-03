@@ -3,7 +3,7 @@ const db = require("../util/database");
 module.exports = class Customers {
 
     constructor(n, e, ts) {
-        this.name = t;
+        this.name = n;
         this.email = e;
         this.totalSales = ts;
     }
