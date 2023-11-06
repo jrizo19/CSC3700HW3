@@ -23,4 +23,6 @@ include layouts/layout
                              td= ('$' + c.TotalSales)
                              td
                                  form(method='get' action='updateCustomer/' + c.id)
-                                     button.btn.btn-primary(type='submit') update
+                                     button.btn.btn-primary(type='submit') Update
+        form(method='get' action='addCustomer/')
+            button.btn-primary(type='submit') Add New Customer
