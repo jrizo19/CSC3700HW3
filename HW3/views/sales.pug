@@ -19,8 +19,9 @@ include layouts/layout
                 tbody
                      each s in sales
                          tr
-                             td= s.SalesDate
+                             td= s.FormattedSalesDate
                              td= s.CustomerName
                              td= s.Product
                              td= s.Quantity
-                             td= ('$' + s.TotalSales)
+                             td= '$' + (parseFloat(s.TotalSales).toLocaleString(undefined, {minimumFractionDigits: 2}))
+

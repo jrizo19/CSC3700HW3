@@ -13,8 +13,8 @@ module.exports = class Customers {
         return db.execute("SELECT c.CustomerName, c.CustomerEmail, " +
             "IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales " +
             "FROM customer c \n" +
-            "LEFT JOIN sales s  ON c.CustomerID = s.CustomerID " +
-            "LEFT JOIN item i ON s.ItemID = s.ItemID " +
+            "JOIN sales s  ON c.CustomerID = s.CustomerID " +
+            "JOIN item i ON s.ItemID = i.ItemID " +
             "GROUP BY c.CustomerName " +
             "ORDER BY TotalSales DESC")
     }

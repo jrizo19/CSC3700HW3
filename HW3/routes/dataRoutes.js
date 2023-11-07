@@ -4,7 +4,9 @@ const customerController = require("../controllers/customerController");
 const productController = require("../controllers/productsController");
 const salesController = require("../controllers/salesController");
 const homeController = require("../controllers/homeController");
-
+router.get('/', (req, res) => {
+    res.redirect('/home');
+});
 
 router.get('/customers', customerController.getCustomer);
 router.post('/customers', customerController.postCustomer);

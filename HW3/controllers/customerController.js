@@ -1,6 +1,6 @@
 const dataRoutes = require("../routes/dataRoutes");
 const Customer = require("../models/customers");
-
+//toDO update & new
 exports.getCustomer = (req, res, next) => {
     Customer.fetchAll()
         .then((rows, fieldData) =>{

@@ -20,7 +20,7 @@ include layouts/layout
                          tr
                              td= c.CustomerName
                              td= c.CustomerEmail
-                             td= ('$' + c.TotalSales)
+                             td= '$' + (parseFloat(c.TotalSales).toLocaleString(undefined, {minimumFractionDigits: 2}))
                              td
                                  form(method='get' action='updateCustomer/' + c.id)
                                      button.btn.btn-primary(type='submit') Update
