@@ -10,11 +10,6 @@ exports.getProducts = (req, res, next) => {
                 item: rows[0]
             })
         })
-    // res.render('products',{
-    //     title: "All Products",
-    //     from: 'products'
-    //     // make sure this corresponds with the nav bar
-    // })
 }
 
 exports.postProducts = (req, res, next) => {

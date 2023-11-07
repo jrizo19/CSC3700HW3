@@ -1,10 +1,4 @@
 const db = require("../util/database");
-const customers = require("../models/customers");
-const products = require("../models/products");
-const sales = require("../models/sales");
-
-
-// May not need this
 module.exports = class Home {
     static fetchCustomer(){
         return db.execute("SELECT c.customername, SUM(i.itemprice * s.quantity) AS Total_Sales " +

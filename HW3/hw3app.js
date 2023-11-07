@@ -11,15 +11,6 @@ const dataRoutes = require('./routes/dataRoutes')
 
 const db = require("./util/database");
 
-// db.execute( "select * from customer") Test For Database connection Successful
-//     .then( result => {
-//         console.log( "Results=");
-//         console.log( result );
-//     })
-//     .catch( err => {
-//         console.log( "DB ERR:"); console.log( err );
-//     })
-
 app.use(bodyParser.urlencoded({extended: false})); // middleware for body
 app.use(express.static( path.join(__dirname, 'public')));
 app.use(dataRoutes.routes)
