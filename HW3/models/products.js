@@ -6,11 +6,11 @@ module.exports = class Products {
         this.item = i;
         this.totalSales = ts;
     }
-    // ^^^^^^^^ make sure this matches the database
+
     static fetchAll(){
-        return db.execute("SELECT i.itemname, SUM(i.itemprice * s.quantity) AS TotalSales " +
+        return db.execute("SELECT i.itemID, i.itemName, SUM(i.itemPrice * s.quantity) AS TotalSales " +
         "FROM item i JOIN sales s ON i.ItemID = s.ItemID " +
-        "GROUP BY s.itemid " +
+        "GROUP BY s.itemID " +
         "ORDER BY TotalSales DESC;")
     }
 }

@@ -9,6 +9,7 @@ include layouts/layout
         table.table.table-striped
             thead
                 tr
+                    th(scope='col') ID
                     th(scope='col') Name
                     th(scope='col') Email
                     th(scope='col') Total Sales
@@ -16,11 +17,12 @@ include layouts/layout
                 tbody
                      each c in customer
                          tr
+                             td= c.CustomerID
                              td= c.CustomerName
                              td= c.CustomerEmail
                              td= '$' + (parseFloat(c.TotalSales).toLocaleString(undefined, {minimumFractionDigits: 2}))
                              td
-                                 form(method='get' action='updateCustomer/' + c.id)
+                                 form(method='get' action='updateCustomer/' + c.CustomerID)
                                      button.btn.btn-primary(type='submit') Update
-        form(method='get' action='addCustomer/')
+        form(method='get' action='/addCustomer')
             button.btn.btn-primary(type='submit') Add New Customer

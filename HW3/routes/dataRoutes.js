@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/customers', customerController.getCustomer);
-router.post('/customers', customerController.postCustomer);
+router.post('/updateCustomer/:id', customerController.postUpdateCustomer);
 
 router.get('/products', productController.getProducts);
 router.post('/products', productController.postProducts);

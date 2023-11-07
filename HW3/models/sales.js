@@ -9,7 +9,6 @@ module.exports = class Sales {
         this.quantity = q;
         this.totalSales = ts;
     }
-    // ^^^^^^^^ make sure this matches the database
     static fetchAll(){
         return db.execute("SELECT DATE_FORMAT(s.SalesDate, '%Y-%m-%d') as FormattedSalesDate, " +
         "c.CustomerName, i.ItemName as Product, s.Quantity, SUM(i.ItemPrice * s.Quantity) as TotalSales " +
@@ -19,7 +18,4 @@ module.exports = class Sales {
         "GROUP BY i.ItemName " +
         "ORDER BY s.SalesDate;")
     }
-
-
-    // add the methods that will access the database for the Customer object
 }

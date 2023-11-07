@@ -13,6 +13,6 @@ include layouts/layout
             tbody
                 each p in item
                      tr
-                         td= p.itemname
+                         td= p.itemName
                          td= '$' + (parseFloat(p.TotalSales).toLocaleString(undefined, {minimumFractionDigits: 2}))
 
