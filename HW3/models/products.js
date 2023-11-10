@@ -9,21 +9,13 @@ module.exports = class Products {
     }
 
     static fetchAll(){
-        return db.execute("SELECT i.itemID, i.itemName, IFNULL((SUM(i.itemPrice * s.quantity)),0) AS TotalSales " +
-        "FROM item i JOIN sales s ON i.ItemID = s.ItemID " +
+        return db.execute("SELECT i.itemID, i.itemName, IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales " +
+        "FROM item i left JOIN sales s ON i.ItemID = s.ItemID " +
         "GROUP BY s.itemID " +
         "ORDER BY TotalSales DESC;")
     }
 
     saveProduct() {
-        // console.log('insert into item (ItemName, ItemPrice)' +
-        //     'values( ?, ?)',
-        //     [this.item, this.price]
-        // )
-        // console.log("Flag Name");
-        // console.log(this.item);
-        // console.log("Flag Price");
-        // console.log(this.price);
         return db.execute('insert into item (ItemName, ItemPrice)' +
             'values(?, ?)',
             [this.item, this.price]

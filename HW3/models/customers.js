@@ -19,14 +19,14 @@ module.exports = class Customers {
         return db.execute("SELECT c.CustomerID, c.CustomerName, c.CustomerEmail, " +
             "IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales " +
             "FROM customer c " +
-            "JOIN sales s  ON c.CustomerID = s.CustomerID " +
-            "JOIN item i ON s.ItemID = i.ItemID " +
-            "GROUP BY c.CustomerName " +
-            "ORDER BY TotalSales DESC")
+            " left JOIN sales s  ON c.CustomerID = s.CustomerID " +
+            " left JOIN item i ON s.ItemID = i.ItemID " +
+            "GROUP BY c.CustomerName "+
+            "ORDER BY TotalSales DESC" )
     }
 
     static findById( id ){
-        return db.execute( "select * from customer where id = ?",
+        return db.execute( "select * from customer where CustomerID = ?",
             [id] );
     }
 

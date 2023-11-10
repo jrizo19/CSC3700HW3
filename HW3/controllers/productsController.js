@@ -18,19 +18,19 @@ exports.postProducts = (req, res, next) => {
         from: 'products'
     })
 }
+
 exports.getAddProduct = (req, res, next) => {
     res.render('addProduct', {
         from: 'products',
         title: 'Add Product'
     })
 }
+
 exports.postAddProduct =(req, res, next) => {
     let i = req.body.item;
     let p = req.body.price;
     const product = new Product(i, p);
     product.saveProduct()
-    res.render('addProduct', {
-        from:'products'
-    })
+    res.redirect('products')
 
 }

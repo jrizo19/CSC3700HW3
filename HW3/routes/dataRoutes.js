@@ -17,7 +17,7 @@ router.get('/addCustomer', customerController.getAddCustomer)
 
 router.get('/products', productController.getProducts);
 router.post('/products', productController.postProducts);
-router.post('/products', productController.postAddProduct);
+router.post('/postProducts', productController.postAddProduct);
 router.get('/addProduct', productController.getAddProduct);
 
 

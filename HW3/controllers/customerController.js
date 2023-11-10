@@ -24,9 +24,9 @@ exports.postAddCustomer =(req, res, next) => {
     let e = req.body.CustomerEmail;
     const customer = new Customer(n, e);
     customer.save()
-    res.render('addCustomer', {
-        from:'customers'
-    })
+    // res.render('addCustomer', {
+    res.redirect('customers'
+    )
 
 }
 
@@ -37,9 +37,7 @@ exports.postUpdateCustomer = (req, res, next) => {
 
     const customer = new Customer( n, e);
     customer.updateCustomer( id ).then ((rows, fieldData) =>{
-        res.redirect('/customers', {
-            from:'customers'
-        });
+        res.redirect('customers');
     }).catch ( err => {
         console.log("What the hec ->");
         console.log(err)
@@ -65,8 +63,21 @@ exports.updateCustomer = ( req, res, next ) => {
 }
 
 exports.getUpdateCustomer = (req, res, next) => {
-    res.render('updateCustomer', {
-        from: 'customers'
+    let id = req.params.id;
+    console.log( "Inside Edit .... id=" + id );
+    // fetch all the records and find the idth one
+    Customer.findById(id)
+        .then ((rows, fieldData) =>{
+            console.log("ROWS=>");
+            res.render( 'updateCustomer', {
+                title : `Update Customer: ${id} `,
+                id : rows[0].id,
+                from: 'customer',
+                customer: rows[0][0]
+            })
+        }).catch( err => {
+        console.log( "DB Error=>");
+        console.log( err );
     })
 }
 
