@@ -1,18 +1,22 @@
 include layouts/layout
 .container
     h2.mt-4 #{title}
+
     if item.length === 0
        h2 Sorry no current Products
     else
-    h2 Products
-    table.table.table-striped
-        thead
-            tr
-                th(scope='col') Product
-                th(scope='col') Total Sales
-            tbody
-                each p in item
-                     tr
-                         td= p.itemName
-                         td= '$' + (parseFloat(p.TotalSales).toLocaleString(undefined, {minimumFractionDigits: 2}))
+        h2 Products
+        table.table.table-striped
+            thead
+                tr
+                    th(scope='col') Product
+                    th(scope='col') Total Sales
+                tbody
+                    each p in item
+                         tr
+                             td= p.itemName
+                             td= '$' + (parseFloat(p.TotalSales).toLocaleString(undefined, {minimumFractionDigits: 2}))
+        form(method='get' action='/addProduct')
+            button.btn.btn-primary(type='submit') Add New Product
+
 

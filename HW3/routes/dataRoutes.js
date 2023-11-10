@@ -9,10 +9,17 @@ router.get('/', (req, res) => {
 });
 
 router.get('/customers', customerController.getCustomer);
-router.post('/updateCustomer/:id', customerController.postUpdateCustomer);
+router.get('/updateCustomer/:id', customerController.getUpdateCustomer)
+router.post('/postUpdateCustomer', customerController.postUpdateCustomer);
+router.post('/customers', customerController.postAddCustomer)
+router.get('/addCustomer', customerController.getAddCustomer)
+
 
 router.get('/products', productController.getProducts);
 router.post('/products', productController.postProducts);
+router.post('/products', productController.postAddProduct);
+router.get('/addProduct', productController.getAddProduct);
+
 
 router.get('/sales', salesController.getSales);
 router.post('/sales', salesController.postSales);

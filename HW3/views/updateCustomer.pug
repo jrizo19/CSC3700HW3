@@ -1,0 +1,23 @@
+include layouts/layout
+
+.container
+    h1.mt-3
+    div.mt-3
+        h1 #{title}
+        p
+            | Update Customer
+        //if ( customer == null )
+        //    h2 Sorry customer is null
+
+    div.mt-2
+        form(action='/postUpdateCustomer' method='post')
+            .form-group
+                input.form-control(type= "hidden" name="CustomerID" value= customer.id)
+            .form-group
+                label(for='customerName') Name
+                input.form-control(type='text' aria-describedby='emailHelp' id='customerName' name='CustomerName' value= customer.name)
+            .form-group
+              label(for='customerEmail') Email
+              input.form-control(type='text' aria-describedby='emailHelp' id='customerEmail' name='CustomerEmail' value= customer.email)
+
+            button.btn.btn-primary(type='submit') Update

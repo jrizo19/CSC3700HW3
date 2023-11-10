@@ -17,7 +17,7 @@ include layouts/layout
                 tbody
                      each c in customer
                          tr
-                             td= c.CustomerID
+                             //td= c.CustomerID
                              td= c.CustomerName
                              td= c.CustomerEmail
                              td= '$' + (parseFloat(c.TotalSales).toLocaleString(undefined, {minimumFractionDigits: 2}))

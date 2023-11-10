@@ -1,6 +1,7 @@
 const dataRoutes = require("../routes/dataRoutes");
 const Product = require("../models/products");
 
+
 exports.getProducts = (req, res, next) => {
     Product.fetchAll()
         .then((rows, fieldData) =>{
@@ -15,6 +16,21 @@ exports.getProducts = (req, res, next) => {
 exports.postProducts = (req, res, next) => {
     res.render('products', {
         from: 'products'
-        // make sure this corresponds with the nav bar
     })
+}
+exports.getAddProduct = (req, res, next) => {
+    res.render('addProduct', {
+        from: 'products',
+        title: 'Add Product'
+    })
+}
+exports.postAddProduct =(req, res, next) => {
+    let i = req.body.item;
+    let p = req.body.price;
+    const product = new Product(i, p);
+    product.saveProduct()
+    res.render('addProduct', {
+        from:'products'
+    })
+
 }

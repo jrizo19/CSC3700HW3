@@ -1,0 +1,13 @@
+include layouts/layout
+
+.container
+    h2.mt-4 #{title}
+
+    form(action='products' method='post')
+        .row
+            .col
+                input.form-control(type='text' placeholder='Name' name='item')
+            .col
+                input.form-control(type='text' placeholder='Price' name='price')
+            .col-auto.my-1
+                button.btn.btn-primary(type='submit') Add Product
