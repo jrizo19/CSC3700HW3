@@ -1,9 +1,8 @@
-const dataRoutes = require("../routes/dataRoutes");
 const Sales = require("../models/sales");
 
-exports.getSales = (req, res, next) => {
+exports.getSales = (req, res) => {
     Sales.fetchAll()
-        .then((rows, fieldData) =>{
+        .then((rows) =>{
             res.render('sales',{
                 title: "All Sales",
                 from: 'sales',
@@ -12,9 +11,8 @@ exports.getSales = (req, res, next) => {
         })
 }
 
-exports.postSales = (req, res, next) => {
+exports.postSales = (req, res) => {
     res.render('sales', {
         from: 'sales'
-        // make sure this corresponds with the nav bar
     })
 }

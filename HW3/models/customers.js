@@ -1,13 +1,11 @@
 const db = require("../util/database");
 
 module.exports = class Customers {
-
     constructor(n, e, ts) {
         this.name = n;
         this.email = e;
         this.totalSales = ts;
     }
-
     save() {
         return db.execute('insert into customer (CustomerName, CustomerEmail)' +
         'values(?, ?)',
@@ -35,7 +33,3 @@ module.exports = class Customers {
             [this.name, this.email, id])
     }
 }
-
-
-// add the methods that will access the database for the Customer object
-
